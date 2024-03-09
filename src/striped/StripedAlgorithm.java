@@ -35,7 +35,7 @@ public class StripedAlgorithm implements Algorithm {
         List<Future<int[]>> list = new ArrayList<>();
 
         for (int i = 0; i < firstMatrix.length(); i++) {
-            StripedAlgorithmCallable worker = new StripedAlgorithmCallable(firstMatrix.getRow(i), i, secondMatrix);
+            StripedAlgorithmCallable worker = new StripedAlgorithmCallable(firstMatrix.getRow(i), secondMatrix);
             Future submit = executor.submit(worker);
             list.add(submit);
         }

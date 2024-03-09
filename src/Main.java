@@ -24,13 +24,18 @@ public class Main {
         secondMatrix.print();
 
 
+        if (firstMatrix.getColumnsLength() != secondMatrix.getRowsLength()) {
+            System.err.println("Matrices are not compatible for multiplication!");
+            return;
+        }
+
         int threadCount = 12;
 
         StopWatch timer = StopWatch.create();
 
 //        regularStripedAndFox(threadCount, firstMatrix, secondMatrix, timer);
-        checkMatrixSizes(timer, threadCount);
-//        checkThreadsNumber(firstMatrix, secondMatrix, timer);
+//        checkMatrixSizes(timer, threadCount);
+        checkThreadsNumber(firstMatrix, secondMatrix, timer);
 
     }
 
@@ -51,6 +56,12 @@ public class Main {
         for (int size : MATRIX_SIZES_LIST) {
             final Matrix firstMatrix = new Matrix(size, size);
             final Matrix secondMatrix = new Matrix(size, size);
+
+            if (firstMatrix.getColumnsLength() != secondMatrix.getRowsLength() || size == 0) {
+                System.err.println("Matrices are not compatible for multiplication!");
+                break;
+            }
+
             firstMatrix.generateRandomMatrix();
             secondMatrix.generateRandomMatrix();
 
