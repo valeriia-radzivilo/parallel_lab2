@@ -1,7 +1,5 @@
 package shared;
 
-import java.util.Arrays;
-
 public class Matrix {
     private final int sizeAxis0;
     private final int sizeAxis1;
@@ -28,31 +26,15 @@ public class Matrix {
         }
     }
 
-    public void transpose() {
-        int[][] newMatrix = new int[this.getSizeAxis1()][this.getSizeAxis0()];
-        for (int i = 0; i < matrix[0].length; i++) {
-            for (int j = 0; j < matrix.length; j++) {
-                newMatrix[i][j] = this.matrix[j][i];
-            }
-        }
-        this.matrix = newMatrix;
+    public int length() {
+        return this.matrix.length;
     }
+
 
     public int[] getRow(int index) {
         return this.matrix[index];
     }
 
-    public double[] getColumn(int index) {
-        return Arrays.stream(matrix).mapToDouble(doubles -> doubles[index]).toArray();
-    }
-
-    public int getSizeAxis0() {
-        return this.sizeAxis0;
-    }
-
-    public int getSizeAxis1() {
-        return this.sizeAxis1;
-    }
 
     public void generateRandomMatrix() {
         for (int i = 0; i < this.sizeAxis0; i++) {

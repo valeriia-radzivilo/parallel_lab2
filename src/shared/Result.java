@@ -8,6 +8,9 @@ public class Result {
         this.matrix = new Matrix(matrix);
     }
 
+    public Result(Matrix matrix) {
+        this.matrix = matrix;
+    }
 
     public Matrix getMatrix() {
         return matrix;
